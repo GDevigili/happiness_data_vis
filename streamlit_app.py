@@ -1,6 +1,8 @@
+
 # ---------------------------------------- #
 #                 IMPORTS                  #
 # ---------------------------------------- #
+
 
 # interface
 import streamlit as st
@@ -19,9 +21,11 @@ from charts import *
 # load files
 df = pd.read_pickle('data/df_happiness.pkl')
 
+
 # ---------------------------------------- #
 #              PAGE SETTINGS               #
 # ---------------------------------------- #
+
 
 title = 'World Happiness Report Data Vis'
 
@@ -29,9 +33,28 @@ st.set_page_config(
     page_title = title
 )
 
+
+# ---------------------------------------- #
+#                SIDE BAR                  #
+# ---------------------------------------- #
+
+
+st.sidebar.title(title)
+
+country_list = st.sidebar.multiselect(
+    label = 'Selecione os países que deseja comparar:', 
+    options = df.country.unique(), 
+    default = ['Brazil', 'United States', 'United Kingdom', 
+                'Italy', 'Germany', 'Argentina', 'Uruguay', 
+                'Paraguay', 'Finland', 'Denmark', 'Switzerland',
+                'Afghanistan', 'Zimbabwe', 'Rwanda']
+)
+
+
 # ---------------------------------------- #
 #              PAGE ELEMENTS               #
 # ---------------------------------------- #
+
 
 st.title(title)
 
