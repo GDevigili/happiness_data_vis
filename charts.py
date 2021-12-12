@@ -6,7 +6,7 @@ def scatter_chart(df):
     x = 'happiness_score', 
     y = 'country',
     color = 'highlight',
-    height = len(df.country.unique()) * 20,
+    height = len(df.country.unique()) * 40,
     hover_data = ['country', 'year', 'happiness_score'],
     color_discrete_map={'none': 'white'}
     )
