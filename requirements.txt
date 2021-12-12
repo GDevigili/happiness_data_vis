@@ -2,4 +2,3 @@ streamlit
 plotly
 matplotlib
 pandas
-pickle
