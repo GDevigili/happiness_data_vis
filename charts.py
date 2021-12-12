@@ -1,12 +1,16 @@
 import plotly.express as px
+from utils import *
 
-def scatter_chart(df):
+def scatter_chart(df, ascending):
+    # df_means = 
+    df.sort_values(by = None, ascending = ascending)
+
     fig = px.scatter(
     df, 
     x = 'happiness_score', 
     y = 'country',
     color = 'highlight',
-    height = len(df.country.unique()) * 40,
+    height = 200 + len(df.country.unique()) * 20,
     hover_data = ['country', 'year', 'happiness_score'],
     color_discrete_map={'none': 'white'}
     )
