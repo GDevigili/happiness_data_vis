@@ -16,10 +16,26 @@ import plotly
 import plotly.express as px
 
 # project files
+from utils import *
 from charts import *
+
+
+# ---------------------------------------- #
+#             GLOBAL VARIABLES             #
+# ---------------------------------------- #
+
 
 # load files
 df = pd.read_pickle('data/df_happiness.pkl')
+
+# copy the df to another variable
+df_aux = df
+
+graph = st.empty
+
+def change_df(df_changed):
+    global df_aux
+    df_aux = df_changed
 
 
 # ---------------------------------------- #
@@ -29,9 +45,13 @@ df = pd.read_pickle('data/df_happiness.pkl')
 
 title = 'World Happiness Report Data Vis'
 
+# Page settings
 st.set_page_config(
     page_title = title
 )
+
+# Add the title
+st.title(title)
 
 
 # ---------------------------------------- #
@@ -39,9 +59,11 @@ st.set_page_config(
 # ---------------------------------------- #
 
 
+# Title
 st.sidebar.title(title)
 
-country_list = st.sidebar.multiselect(
+# Country multiselector
+selected_countries = st.sidebar.multiselect(
     label = 'Selecione os países que deseja comparar:', 
     options = df.country.unique(), 
     default = ['Brazil', 'United States', 'United Kingdom', 
@@ -50,12 +72,16 @@ country_list = st.sidebar.multiselect(
                 'Afghanistan', 'Zimbabwe', 'Rwanda']
 )
 
+change_df(df[df.country.isin(selected_countries)])
+
+# Checkbox for sorting
+sort = st.sidebar.checkbox(
+    'Ascending order of happiness', 
+    value = True)
 
 # ---------------------------------------- #
 #              PAGE ELEMENTS               #
 # ---------------------------------------- #
 
 
-st.title(title)
-
-st.plotly_chart(scatter_chart(df))
+graph = render_scatter(df_aux, sort)
