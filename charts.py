@@ -1,12 +1,10 @@
 import plotly.express as px
 from utils import *
 
-def scatter_chart(df, ascending):
-    # df_means = 
-    df.sort_values(by = None, ascending = ascending)
+def scatter_chart(df, ascending = False):
 
     fig = px.scatter(
-    df, 
+    df.sort_values(['happiness_score'], ascending = ascending), 
     x = 'happiness_score', 
     y = 'country',
     color = 'highlight',
@@ -17,7 +15,7 @@ def scatter_chart(df, ascending):
 
     fig.update_yaxes(
         tickvals = df.country.unique(),              # make a line for each country
-        
+        range=[-.5,len(df.country.unique())+.5]
     )            
 
     fig.update_xaxes(
