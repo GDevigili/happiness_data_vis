@@ -25,25 +25,31 @@ def render_map(df, st_col):
     # get mean by country
     df_mean['country_iso'] = [countries.get(country, 'Unknown code') for country in df_mean['country'].unique()]
 
-    df_mean.rename(columns = {'happiness_score': 'Mean Happiness Score'}, inplace=True)
-    print(df_mean.info())
+    df_mean.rename(columns = {'happiness_score': 'Mean HIS'}, inplace=True)
 
     # generate the figure
     fig = px.choropleth(
         # data
         df_mean,
         locations = 'country_iso', 
-        color = 'Mean Happiness Score',
+        color = 'Mean HIS',
 
         # color
         color_continuous_scale = px.colors.sequential.Aggrnyl,
 
         # title and lables
-        title = 'Mean Happiness Index Score by Country',
         # label = {'happiness_score': 'Mean Happiness Index Score'}
     )
 
-    fig.update_layout(width = 500, height = 300)
+    fig.update_layout(
+        legend = dict(
+            orientation = 'h',
+            yanchor = 'bottom',
+            y = 1.0
+        )
+    )
+
+    fig.update_layout(width = 500, height = 400)
 
     return st_col.plotly_chart(fig)
 

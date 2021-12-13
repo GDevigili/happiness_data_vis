@@ -44,7 +44,8 @@ title = 'World Happiness Report Data Vis'
 # Page settings
 st.set_page_config(
     page_title = title,
-    layout = 'wide'
+    layout = 'wide',
+    initial_sidebar_state = 'collapsed'
 )
 
 # Add the title
@@ -83,5 +84,7 @@ sort = st.sidebar.checkbox(
 c1, c2 = st.columns((2.5, 1.5))
 
 scatter = render_scatter(df_aux, c1,sort)
+
+c2.markdown('#### Map of Mean Happiness Index Score by Country')
 
 map_chart = render_map(df, c2)
