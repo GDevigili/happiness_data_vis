@@ -3,8 +3,6 @@
 #                 IMPORTS                  #
 # ---------------------------------------- #
 
-from utils import *
-
 # interface
 import streamlit as st
 
@@ -17,8 +15,9 @@ import plotly
 import plotly.express as px
 
 # project files
-from my_charts.scatter_chart import *
-from my_charts.map import *
+from source.scatter_chart import *
+from source.map import *
+from source.utils import *
 
 
 # ---------------------------------------- #
