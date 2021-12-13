@@ -3,6 +3,7 @@
 #                 IMPORTS                  #
 # ---------------------------------------- #
 
+from utils import *
 
 # interface
 import streamlit as st
@@ -16,22 +17,19 @@ import plotly
 import plotly.express as px
 
 # project files
-from utils import *
-from charts import *
+from my_charts.scatter_chart import *
+from my_charts.map import *
 
 
 # ---------------------------------------- #
 #             GLOBAL VARIABLES             #
 # ---------------------------------------- #
 
-
 # load files
 df = pd.read_pickle('data/df_happiness.pkl')
 
 # copy the df to another variable
 df_aux = df
-
-graph = st.empty
 
 def change_df(df_changed):
     global df_aux
@@ -41,7 +39,6 @@ def change_df(df_changed):
 # ---------------------------------------- #
 #              PAGE SETTINGS               #
 # ---------------------------------------- #
-
 
 title = 'World Happiness Report Data Vis'
 
@@ -57,7 +54,6 @@ st.title(title)
 # ---------------------------------------- #
 #                SIDE BAR                  #
 # ---------------------------------------- #
-
 
 # Title
 st.sidebar.title('Filter the data:')
@@ -79,9 +75,11 @@ sort = st.sidebar.checkbox(
     'Ascending order of happiness', 
     value = True)
 
+
 # ---------------------------------------- #
 #              PAGE ELEMENTS               #
 # ---------------------------------------- #
+ 
+scatter = render_scatter(df_aux, sort)
 
-
-graph = render_scatter(df_aux, sort)
+map_chart = render_map(df)
