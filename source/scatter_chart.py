@@ -29,7 +29,9 @@ def scatter_chart(df, ascending = False):
         height = 200 + len(df.country.unique()) * 20,
 
         # hover data
+        hover_name = 'country',
         hover_data = ['country', 'year', 'happiness_score'],
+        # hover_text = ['Country', 'Year', 'Happiness Index Score'],
         
         # title and labels
         title = 'World Happiness Report 2005-2021: Happiness Index Score by Country',
