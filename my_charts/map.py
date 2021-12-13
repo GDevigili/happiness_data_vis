@@ -28,11 +28,7 @@ def render_map(df):
         df_mean,
         locations = 'country_iso', 
         color = 'happiness_score',
-        color_continuous_scale = [
-            [0.0, gray], 
-            [0.5, yellow], 
-            [1.0, green]
-        ]
+        color_continuous_scale = px.colors.sequential.Aggrnyl
     )
 
     return st.plotly_chart(fig)
