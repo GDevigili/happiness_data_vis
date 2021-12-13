@@ -3,6 +3,11 @@ from utils import *
 import pycountry
 import streamlit as st
 
+blue = '#3177CD'
+yellow = '#FFAD01'
+red = '#BF3100'
+gray = '#E0E0E0'
+
 def render_map(df):
     # get the mean df
     df_mean = get_df_mean(df)
@@ -18,7 +23,8 @@ def render_map(df):
     fig = px.choropleth(
         df_mean,
         locations = 'country_iso', 
-        color = 'happiness_score'
+        color = 'happiness_score',
+        color_continuous_scale = [[0.0, gray], [1.0, yellow]]
     )
 
     return st.plotly_chart(fig)
