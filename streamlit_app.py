@@ -65,9 +65,9 @@ st.sidebar.title('Filter the data:')
 selected_countries = st.sidebar.multiselect(
     label = 'Countries:', 
     options = df.country.unique(), 
-    default = ['Brazil', 'United States', 'United Kingdom', 
-                'Italy', 'Germany', 'Argentina', 'Uruguay', 
-                'Paraguay', 'Finland', 'Denmark', 'Switzerland',
+    default = ['Brazil', 'Argentina', 'Uruguay', 'United States',
+                'Greece',
+                'Finland', 'Denmark', 'Switzerland',
                 'Afghanistan', 'Zimbabwe', 'Rwanda']
 )
 
