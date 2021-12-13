@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from charts import *
 
-def df_mean(df, value_col, group_col):
+def get_df_mean(df, value_col, group_col):
     for col in df[group_col].unique():
         return df[df[group_col] == col].groupby(group_col)[value_col].mean()
 
