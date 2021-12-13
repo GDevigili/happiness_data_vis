@@ -17,6 +17,8 @@ import plotly.express as px
 # project files
 from source.scatter_chart import *
 from source.map import *
+from source.line import *
+
 from source.utils import *
 
 
@@ -84,8 +86,9 @@ sort = st.sidebar.checkbox(
 
 scatter = render_scatter(df_aux, st, sort)
 
-c1, c2 = st.columns((2, 2))
 
 # c2.markdown('#### Map of Mean Happiness Index Score by Country')
 
-map_chart = render_map(df, c2)
+line_chart = render_line(df_aux, st)
+
+map_chart = render_map(df, st)
