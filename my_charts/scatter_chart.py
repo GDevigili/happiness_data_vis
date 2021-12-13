@@ -32,7 +32,7 @@ def scatter_chart(df, ascending = False):
         hover_data = ['country', 'year', 'happiness_score'],
         
         # title and labels
-        title = 'World Happiness Report 2007-2021: Happiness Index Score by Country',
+        title = 'World Happiness Report 2005-2021: Happiness Index Score by Country',
         labels = {
             'happiness_score': 'Happiness Index Score',
             'country': ''
