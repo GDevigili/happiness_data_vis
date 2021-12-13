@@ -46,7 +46,7 @@ title = 'World Happiness Report Data Vis'
 # Page settings
 st.set_page_config(
     page_title = title,
-    layout = 'wide',
+    # layout = 'wide',
     initial_sidebar_state = 'auto'
 )
 
@@ -71,7 +71,11 @@ selected_countries = st.sidebar.multiselect(
                 'Afghanistan', 'Zimbabwe', 'Rwanda']
 )
 
-change_df(df[df.country.isin(selected_countries)])
+if len(selected_countries):
+    change_df(df[df.country.isin(selected_countries)])
+else:
+    change_df(df)
+
 
 # Checkbox for sorting
 sort = st.sidebar.checkbox(
