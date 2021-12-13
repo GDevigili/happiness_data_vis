@@ -13,7 +13,7 @@ def scatter_chart(df, ascending = False):
         color_discrete_map={
                 'Other years': '#E0E0E0',
                 2020: '#3177CD',
-                2021: '#051B33'
+                2021: '#FFAD01'
             },
         labels = {
             'x': 'Happiness Index Score',
