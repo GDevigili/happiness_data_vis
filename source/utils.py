@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from source.scatter_chart import *
 
-def get_df_mean(df):
+def df_mean_by_country(df):
     df_mean = pd.DataFrame(columns=['country', 'happiness_score'])
     for country in df['country'].unique():
         new_col = df[df['country'] == country].groupby('country').mean()

@@ -14,7 +14,7 @@ green = '#7AE582'
 
 def render_map(df, st_col):
     # get the mean df
-    df_mean = get_df_mean(df)
+    df_mean = df_mean_by_country(df)
 
     # transform the country names into ISO
     countries = {}
@@ -38,6 +38,7 @@ def render_map(df, st_col):
         color_continuous_scale = px.colors.sequential.Aggrnyl,
 
         # title and lables
+        title = 'Map of Mean Happiness Index Score by Country'
         # label = {'happiness_score': 'Mean Happiness Index Score'}
     )
 
