@@ -44,7 +44,8 @@ title = 'World Happiness Report Data Vis'
 
 # Page settings
 st.set_page_config(
-    page_title = title
+    page_title = title,
+    layout = 'wide'
 )
 
 # Add the title
