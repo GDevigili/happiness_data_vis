@@ -44,8 +44,6 @@ def render_line(df, st_col):
         legend = dict(
             orientation = 'v'
         )
-
-
     )
 
     return st_col.plotly_chart(fig)
