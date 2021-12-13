@@ -60,11 +60,11 @@ st.title(title)
 
 
 # Title
-st.sidebar.title(title)
+st.sidebar.title('Filter the data:')
 
 # Country multiselector
 selected_countries = st.sidebar.multiselect(
-    label = 'Selecione os países que deseja comparar:', 
+    label = 'Countries:', 
     options = df.country.unique(), 
     default = ['Brazil', 'United States', 'United Kingdom', 
                 'Italy', 'Germany', 'Argentina', 'Uruguay', 
