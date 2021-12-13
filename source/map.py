@@ -1,5 +1,5 @@
 import plotly.express as px
-from utils import *
+from source.utils import *
 import pycountry
 import streamlit as st
 
@@ -12,7 +12,7 @@ light_blue = '#53F4FF'
 green = '#7AE582'
 
 
-def render_map(df):
+def render_map(df, st_col):
     # get the mean df
     df_mean = get_df_mean(df)
 
@@ -22,14 +22,28 @@ def render_map(df):
     for country in pycountry.countries:
         countries [country.name] = country.alpha_3
 
+    # get mean by country
     df_mean['country_iso'] = [countries.get(country, 'Unknown code') for country in df_mean['country'].unique()]
 
+    df_mean.rename(columns = {'happiness_score': 'Mean Happiness Score'}, inplace=True)
+    print(df_mean.info())
+
+    # generate the figure
     fig = px.choropleth(
+        # data
         df_mean,
         locations = 'country_iso', 
-        color = 'happiness_score',
-        color_continuous_scale = px.colors.sequential.Aggrnyl
+        color = 'Mean Happiness Score',
+
+        # color
+        color_continuous_scale = px.colors.sequential.Aggrnyl,
+
+        # title and lables
+        title = 'Mean Happiness Index Score by Country',
+        # label = {'happiness_score': 'Mean Happiness Index Score'}
     )
 
-    return st.plotly_chart(fig)
+    fig.update_layout(width = 500, height = 300)
+
+    return st_col.plotly_chart(fig)
 

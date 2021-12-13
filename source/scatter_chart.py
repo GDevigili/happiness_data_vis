@@ -1,5 +1,5 @@
 import plotly.express as px
-from utils import *
+from source.utils import *
 import streamlit as st
 
 blue = '#3177CD'
@@ -37,8 +37,6 @@ def scatter_chart(df, ascending = False):
             'happiness_score': 'Happiness Index Score',
             'country': ''
         },
-
-        # marginal_x = 'histogram'
     )
 
     fig.update_yaxes(
@@ -84,5 +82,5 @@ def scatter_chart(df, ascending = False):
 
     return fig
 
-def render_scatter(df, sort = False):
-    return st.plotly_chart(scatter_chart(df, ascending = sort))
+def render_scatter(df, st_col, sort = False):
+    return st_col.plotly_chart(scatter_chart(df, ascending = sort))

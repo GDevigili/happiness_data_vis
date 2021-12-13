@@ -80,6 +80,8 @@ sort = st.sidebar.checkbox(
 #              PAGE ELEMENTS               #
 # ---------------------------------------- #
  
-scatter = render_scatter(df_aux, sort)
+c1, c2 = st.columns((2.5, 1.5))
 
-map_chart = render_map(df)
+scatter = render_scatter(df_aux, c1,sort)
+
+map_chart = render_map(df, c2)
