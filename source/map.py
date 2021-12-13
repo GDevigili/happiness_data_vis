@@ -50,7 +50,7 @@ def render_map(df, st_col):
         )
     )
 
-    fig.update_layout(width = 500, height = 400)
+    # fig.update_layout(width = 500, height = 400)
 
     return st_col.plotly_chart(fig)
 
