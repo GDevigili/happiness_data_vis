@@ -10,6 +10,3 @@ def get_df_mean(df):
         df_mean = df_mean.append(new_col[['country', 'happiness_score']])
 
     return df_mean
-
-def render_scatter(df, sort = False):
-    return st.plotly_chart(scatter_chart(df, ascending = sort))

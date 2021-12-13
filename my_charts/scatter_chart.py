@@ -1,5 +1,6 @@
 import plotly.express as px
 from utils import *
+import streamlit as st
 
 blue = '#3177CD'
 yellow = '#FFAD01'
@@ -82,3 +83,6 @@ def scatter_chart(df, ascending = False):
     )
 
     return fig
+
+def render_scatter(df, sort = False):
+    return st.plotly_chart(scatter_chart(df, ascending = sort))
