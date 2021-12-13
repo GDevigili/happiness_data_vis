@@ -1,39 +1,42 @@
 import plotly.express as px
 from utils import *
 
-def scatter_chart(df, marker_color, ascending = False):
+def scatter_chart(df, ascending = False):
 
     fig = px.scatter(
         df.sort_values(['happiness_score'], ascending = ascending), 
-        x =         'happiness_score', 
-        y =         'country',
-        color =     'highlight',
-        height =    200 + len(df.country.unique()) * 20,
+        x = 'happiness_score', 
+        y = 'country',
+        color = 'highlight',
+        height = 200 + len(df.country.unique()) * 20,
         hover_data = ['country', 'year', 'happiness_score'],
+        color_discrete_map={
+                'Other years': '#E0E0E0',
+                2020: '#3177CD',
+                2021: '#051B33'
+            },
         labels = {
-                    'x': 'Happiness Index Score',
-                    'y': None
+            'x': 'Happiness Index Score',
+            'y': None
         }
     )
 
     fig.update_yaxes(
-        tickvals =  df.country.unique(),              # make a line for each country
-        range=      [-.5,len(df.country.unique())+.5]
+        tickvals = df.country.unique(),              # make a line for each country
+        range=[-.5,len(df.country.unique())+.5]
     )            
 
     fig.update_xaxes(
         tickwidth = 1,
-        range =     (2, 8.2)
+        range = (2, 8.2)
     )
 
     fig.update_traces(
         marker = {
-            'size':     12,
-            'opacity':  0.9,
-            'line':     {'width':1, 'color': 'DarkSlateGrey'},
-            'color':    marker_color
+            'size': 12,
+            'opacity':0.9,
+            'line':{'width':1, 'color': 'DarkSlateGrey'},
         }
-        
     )
 
     fig.update_layout({
