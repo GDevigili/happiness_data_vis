@@ -49,7 +49,6 @@ def scatter_chart(df, ascending = False):
 
     fig.update_xaxes(
         tickwidth = 1,
-        range = (2, 8.2), 
         linecolor = gray
     )
 
