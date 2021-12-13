@@ -7,6 +7,10 @@ blue = '#3177CD'
 yellow = '#FFAD01'
 red = '#BF3100'
 gray = '#E0E0E0'
+dark_blue = '#201335'
+light_blue = '#53F4FF'
+green = '#7AE582'
+
 
 def render_map(df):
     # get the mean df
@@ -24,7 +28,11 @@ def render_map(df):
         df_mean,
         locations = 'country_iso', 
         color = 'happiness_score',
-        color_continuous_scale = [[0.0, gray], [1.0, yellow]]
+        color_continuous_scale = [
+            [0.0, gray], 
+            [0.5, yellow], 
+            [1.0, green]
+        ]
     )
 
     return st.plotly_chart(fig)
