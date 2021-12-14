@@ -96,3 +96,5 @@ scatter = render_scatter(df_aux, st, sort)
 line_chart = render_line(df_aux, st)
 
 map_chart = render_map(df, st)
+
+st.dataframe(df.head())
