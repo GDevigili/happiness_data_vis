@@ -15,7 +15,7 @@ import plotly
 import plotly.express as px
 
 # project files
-from source.scatter_chart import *
+from source.main_chart import *
 from source.map import *
 from source.line import *
 from source.sccatter import *

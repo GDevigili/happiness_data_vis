@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from source.scatter_chart import *
+from source.main_chart import *
 
 def df_mean_by_country(df):
     df_mean = pd.DataFrame(columns=['country', 'happiness_score'])
