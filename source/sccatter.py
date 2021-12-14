@@ -11,8 +11,9 @@ green = '#7AE582'
 
 def render_scatter_2(df, x_col, st_col):
 
-    print(df['regional_indicator'].unique())
-
+    color_by = 'country'
+    if len(df['country'].unique()) > 10:
+        color_by = 'regional_indicator'
 
     fig = px.scatter(
 

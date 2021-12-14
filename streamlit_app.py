@@ -38,7 +38,11 @@ df_aux = df
 def change_df(df_changed):
     global df_aux
     df_aux = df_changed
-
+    
+selected_countries = ['Brazil', 'Argentina',
+                'Greece', 'Germany',
+                'Finland', 'Denmark', 'Switzerland',
+                'Afghanistan', 'Zimbabwe', 'Rwanda']
 
 # ---------------------------------------- #
 #              PAGE SETTINGS               #
@@ -68,10 +72,7 @@ st.sidebar.title('Filter the data:')
 selected_countries = st.sidebar.multiselect(
     label = 'Countries:', 
     options = df.country.unique(), 
-    default = ['Brazil', 'Argentina', 'Uruguay',
-                'Greece', 'Germany',
-                'Finland', 'Denmark', 'Switzerland',
-                'Afghanistan', 'Zimbabwe', 'Rwanda']
+    default = selected_countries
 )
 
 if len(selected_countries):
@@ -98,9 +99,6 @@ selected_col  = st.sidebar.selectbox(
  
 
 scatter = render_scatter(df_aux, st, sort)
-
-
-# c2.markdown('#### Map of Mean Happiness Index Score by Country')
 
 line_chart = render_line(df_aux, st)
 
