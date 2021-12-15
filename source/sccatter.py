@@ -19,8 +19,8 @@ def render_scatter_2(df, x_col, st_col):
 
         # data
         df,
-        y = x_col,
-        x = 'happiness_score',
+        x = x_col,
+        y = 'happiness_score',
 
         # color
         color = 'regional_indicator',
