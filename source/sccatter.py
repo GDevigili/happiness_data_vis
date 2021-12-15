@@ -23,7 +23,7 @@ def render_scatter_2(df, x_col, st_col):
         y = 'happiness_score',
 
         # color
-        color = 'regional_indicator',
+        color = color_by,
 
         # trendline
         trendline = 'ols'
