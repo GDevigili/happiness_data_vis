@@ -24,6 +24,7 @@ def render_scatter_2(df, x_col, st_col):
 
         # color
         color = color_by,
+        opacity = 0.8,
 
         # trendline
         trendline = 'ols'
